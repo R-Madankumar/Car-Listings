@@ -1,0 +1,68 @@
+<style>
+    .filter-item {
+        transition: 0.3s ease;
+        padding: 6px 12px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center; 
+        justify-content: center;
+        gap: 8px;
+    }
+
+    .filter-item:hover {
+        background-color: #d5d4d4;
+        cursor: pointer;
+        transform: translateY(-2px);
+    }
+
+    /* Mobile adjustments */
+    @media (max-width: 576px) {
+        #filters {
+            gap: 12px !important;
+            margin-top: 1.5rem;
+        }
+
+        .filter-item {
+            padding: 6px 8px;
+            font-size: 0.9rem;
+        }
+
+        .listing-card img {
+            height: 12rem !important;
+        }
+    }
+</style>
+
+
+<nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/listings"><i class="fa-brands fa-slack"></i></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link filter-item" href="/listings">Explore</a>
+      </div>
+
+      <div class="ms-auto">
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" style="width: 350px;" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-dark rounded-3" type="submit"><i class="fa-solid fa-magnifying-glass"></i> </button>
+        </form>
+      </div>
+
+      <div class="navbar-nav ms-auto">
+        <a class="nav-link filter-item" href="/listings/new"><b>New Cars</b></a>
+        <% if(!currUser) { %>
+        <a class="nav-link filter-item"  href="/signup"><b>Signup</b></a>
+        <a class="nav-link filter-item" href="/login"><b>login</b></a>
+        <%}else{%>
+        <a class="nav-link filter-item" href="/logout"><b>logout</b></a>
+        <%}%>
+      </div>
+
+      
+    </div>
+  </div>
+</nav>
